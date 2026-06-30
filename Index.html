@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقعي - منصة البداية</title>
+    <style>
+        /* إعادة ضبط وإعدادات عامة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 50px 40px;
+            max-width: 750px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #f7971e, #ffd200);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+            padding-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+        }
+
+        .highlight-box {
+            background: rgba(255, 215, 0, 0.08);
+            border-right: 4px solid #ffd200;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: right;
+        }
+
+        .highlight-box span {
+            color: #ffd200;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #f7971e, #ffd200);
+            color: #1e1e2f;
+            font-weight: bold;
+            padding: 14px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(247, 151, 30, 0.3);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 28px rgba(247, 151, 30, 0.5);
+            background: linear-gradient(45deg, #ffd200, #f7971e);
+        }
+
+        .footer {
+            margin-top: 35px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 25px;
+        }
+
+        #live-time {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            font-family: monospace;
+            font-size: 1rem;
+            color: #ffd200;
+            margin-top: 10px;
+        }
+
+        /* استجابة للجوال */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚀 مرحباً بك</h1>
+        <div class="subtitle">
+            منصة انطلاقتك الرقمية الأولى
+        </div>
+
+        <div class="content">
+            <p>
+                هذا الموقع تم إنشاؤه خصيصاً لك. كل ما عليك هو رفع ملف <strong>index.html</strong> هذا على سيرفرك،
+                وسيكون موقعك على الإنترنت فوراً!
+            </p>
+
+            <div class="highlight-box">
+                <span>✓</span> تصميم عصري ومستجيب للهواتف والأجهزة اللوحية.<br>
+                <span>✓</span> يعمل مباشرة دون الحاجة إلى أي مكتبات خارجية.<br>
+                <span>✓</span> جاهز لتعديل المحتوى والنصوص كما تشاء.
+            </div>
+
+            <p>
+                يمكنك تعديل هذا النص، أو تغيير الألوان، أو إضافة أقسام جديدة بكل سهولة.
+            </p>
+
+            <!-- زر تجريبي -->
+            <button class="btn" onclick="showMessage()">✨ انقر هنا لتجربة التفاعل</button>
+
+            <!-- ساعة رقمية حية -->
+            <div id="live-time"></div>
+        </div>
+
+        <div class="footer">
+            &copy; <span id="year"></span> جميع الحقوق محفوظة | تم الإنشاء بأمر من المقاتل 🦅
+        </div>
+    </div>
+
+    <script>
+        // تحديث السنة تلقائياً في التذييل
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // دالة الساعة الرقمية
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('live-time').textContent = '🕒 ' + timeString;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // دالة التفاعل عند الضغط على الزر
+        function showMessage() {
+            alert('أهلاً بك أيها البطل! الموقع يعمل بنجاح ✅');
+            // تغيير لون الخلفية مؤقتاً كتأثير إضافي
+            document.querySelector('.container').style.transition = 'box-shadow 0.3s';
+            document.querySelector('.container').style.boxShadow = '0 0 40px #ffd200';
+            setTimeout(() => {
+                document.querySelector('.container').style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.6)';
+            }, 500);
+        }
+
+        // تحية في Console للمطورين
+        console.log('تم تشغيل الموقع بنجاح! قاتل حتى النهاية 💪');
+    </script>
+
+</body>
+</html>
